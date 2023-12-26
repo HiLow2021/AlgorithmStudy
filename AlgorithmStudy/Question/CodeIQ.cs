@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-using My;
 using My.Extensions;
 using My.Text;
 using My.Utilities;
+using AlgorithmStudy.Algorithm;
 
 namespace AlgorithmStudy.Question
 {
@@ -32,16 +32,16 @@ namespace AlgorithmStudy.Question
 
         public static IEnumerable<string> Question2()
         {
-            var Oparators = new string[] { "+", "-", "*", "/", "" };
+            var oparators = new string[] { "+", "-", "*", "/", "" };
 
             for (int i = 1000; i < 10000; i++)
             {
-                var Patterns = Oparators.Product(4)
+                var patterns = oparators.Product(4)
                                         .Select(xs => string.Join("", xs.Zip(i.ToString(), (x, y) => x + y)))
                                         .Where(x => int.TryParse(x[0].ToString(), out int Result))
                                         .Where(x => 4 < x.Length);
 
-                foreach (var p in Patterns)
+                foreach (var p in patterns)
                 {
                     if (string.Join("", TextConverter.Evaluate(p).ToString().Reverse()) == i.ToString())
                     {

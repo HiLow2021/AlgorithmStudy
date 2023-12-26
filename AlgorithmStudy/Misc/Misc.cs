@@ -4,8 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using My.Extensions;
-using My.Search;
-using My.Text;
+using AlgorithmStudy.Algorithm.Search;
 
 namespace AlgorithmStudy.Misc
 {
