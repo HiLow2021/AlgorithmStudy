@@ -21,7 +21,6 @@ namespace AlgorithmStudy.Demo
                 sw.Restart();
                 
                 var result = "";
-
                 Console.WriteLine(result);
 
                 sw.Stop();
