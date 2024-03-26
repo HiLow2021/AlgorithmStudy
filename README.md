@@ -1,17 +1,15 @@
 # AlgorithmStudy
 
-## �T�v
+## 概要
 
-- �A���S���Y���̊w�K���|�W�g���B
+- アルゴリズムの学習リポジトリ。
+- VisualStudio で作成。
+- 種類別にフォルダ分類。
 
-- VisualStudio �ō쐬�B
+## 内訳
 
-- ��ޕʂɃt�H���_���ށB
-
-## ����
-
-| ��� | ���� |
+| 種類 | 説明 |
 | --- | --- |
-| Algorithm | �A���S���Y���ʂ̃T���v���R�[�h�W |
-| Question | �v���O���~���O���̉𓚃R�[�h�W |
-| Misc | ���̑� |
+| Algorithm | アルゴリズム別のサンプルコード集 |
+| Question | プログラミング問題の解答コード集 |
+| Misc | その他 |
