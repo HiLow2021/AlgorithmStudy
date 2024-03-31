@@ -178,35 +178,19 @@ namespace AlgorithmStudy.Question
         {
             var data = GetQuestionData(input);
 
-            Debug(data);
-
 
         }
 
         private static List<string> GetQuestionLine(string input)
         {
-            var lines = input.Trim().Split(Environment.NewLine).Select(x => x.Trim()).ToArray();
-            var result = new List<string>();
-
-            foreach (var item in lines)
-            {
-                result.Add(item);
-            }
+            var result = input.Trim().Split(Environment.NewLine).Select(x => x.Trim()).ToList();
 
             return result;
         }
 
         private static List<List<string>> GetQuestionData(string input)
         {
-            var lines = input.Trim().Split(Environment.NewLine).Select(x => x.Trim()).ToArray();
-            var result = new List<List<string>>();
-
-            foreach (var item in lines)
-            {
-                var split = Regex.Split(item, @"\s");
-
-                result.Add(split.ToList());
-            }
+            var result = GetQuestionLine(input).Select(x => Regex.Split(x, @"\s").ToList()).ToList();
 
             return result;
         }

@@ -14,7 +14,7 @@ namespace AlgorithmStudy.Demo
             do
             {
                 var input = Console.ReadLine();
-                if(IsApplicationExit(input))
+                if (IsApplicationExit(input))
                 {
                     break;
                 }
