@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Text.RegularExpressions;
+using AlgorithmStudy.Question;
 
 namespace AlgorithmStudy.Demo
 {
@@ -19,7 +20,7 @@ namespace AlgorithmStudy.Demo
                 }
 
                 sw.Restart();
-                
+
                 var result = "";
                 Console.WriteLine(result);
 

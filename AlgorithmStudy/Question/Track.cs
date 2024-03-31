@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace AlgorithmStudy.Question
@@ -121,6 +123,97 @@ namespace AlgorithmStudy.Question
             results = results.Distinct().Where(x => x.Length > 0).ToList();
 
             return results.Count;
+        }
+
+        /// <summary>
+        /// Track のチュートリアル問題です。
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
+        public static IList<int> Tutorial(string input)
+        {
+            var lines = GetQuestionLine(input);
+            var positionsX = new List<long>() { 0 };
+            var positionsY = new List<long>() { 0 };
+            var result = new List<int>();
+
+            for (int i = 0; i < lines.Count; i++)
+            {
+                var splits = lines[i].Split(" ");
+                var command = splits[0];
+
+                if (command == "MOVE")
+                {
+                    var moveX = long.Parse(splits[1]);
+                    var moveY = long.Parse(splits[2]);
+                    var currentX = positionsX[positionsX.Count - 1] + moveX;
+                    var currentY = positionsY[positionsY.Count - 1] + moveY;
+
+                    positionsX.Add(currentX);
+                    positionsY.Add(currentY);
+                }
+                if (command == "QUERY_EAST" || command == "QUERY_NORTH")
+                {
+                    var positions = command == "QUERY_EAST" ? positionsX : positionsY;
+                    var street = long.Parse(splits[1]);
+                    var count = 0;
+
+                    for (int j = 1; j < positions.Count; j++)
+                    {
+                        if ((positions[j - 1] < street && street < positions[j]) ||
+                        positions[j] < street && street < positions[j - 1])
+                        {
+                            count++;
+                        }
+                    }
+
+                    result.Add(count);
+                }
+            }
+
+            return result;
+        }
+
+        public static void Sansan(string input)
+        {
+            var data = GetQuestionData(input);
+
+            Debug(data);
+
+
+        }
+
+        private static List<string> GetQuestionLine(string input)
+        {
+            var lines = input.Trim().Split(Environment.NewLine).Select(x => x.Trim()).ToArray();
+            var result = new List<string>();
+
+            foreach (var item in lines)
+            {
+                result.Add(item);
+            }
+
+            return result;
+        }
+
+        private static List<List<string>> GetQuestionData(string input)
+        {
+            var lines = input.Trim().Split(Environment.NewLine).Select(x => x.Trim()).ToArray();
+            var result = new List<List<string>>();
+
+            foreach (var item in lines)
+            {
+                var split = Regex.Split(item, @"\s");
+
+                result.Add(split.ToList());
+            }
+
+            return result;
+        }
+
+        private static void Debug(dynamic source)
+        {
+            Console.WriteLine(JsonSerializer.Serialize(source));
         }
     }
 }
