@@ -215,13 +215,13 @@ namespace AlgorithmStudy.Question
 
                 for (int j = i + 1; j < works.Count; j++)
                 {
-                    var ts = works[j].Item1;
-                    var te = works[j].Item2;
+                    var targetStart = works[j].Item1;
+                    var targetEnd = works[j].Item2;
 
-                    if (ts - end <= 1)
+                    if (targetStart - end <= 1)
                     {
-                        start = Math.Min(start, ts);
-                        end = Math.Max(end, te);
+                        start = Math.Min(start, targetStart);
+                        end = Math.Max(end, targetEnd);
                         count = end - start + 1;
                     }
 
