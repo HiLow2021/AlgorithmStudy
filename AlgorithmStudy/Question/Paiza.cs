@@ -224,8 +224,6 @@ namespace AlgorithmStudy.Question
                         end = Math.Max(end, targetEnd);
                         count = end - start + 1;
                     }
-
-                    max = Math.Max(max, count);
                 }
 
                 max = Math.Max(max, count);
