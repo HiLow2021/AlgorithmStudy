@@ -202,5 +202,36 @@ namespace AlgorithmStudy.Question
 
             return sums;
         }
+
+        public static int A066(IList<(int, int)> works)
+        {
+            var max = 0;
+
+            for (int i = 0; i < works.Count; i++)
+            {
+                var start = works[i].Item1;
+                var end = works[i].Item2;
+                var count = end - start + 1;
+
+                for (int j = i + 1; j < works.Count; j++)
+                {
+                    var ts = works[j].Item1;
+                    var te = works[j].Item2;
+
+                    if (ts - end <= 1)
+                    {
+                        start = Math.Min(start, ts);
+                        end = Math.Max(end, te);
+                        count = end - start + 1;
+                    }
+
+                    max = Math.Max(max, count);
+                }
+
+                max = Math.Max(max, count);
+            }
+
+            return max;
+        }
     }
 }
